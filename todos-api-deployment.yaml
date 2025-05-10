@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todos-api-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: todos-api
+  template:
+    metadata:
+      labels:
+        app: todos-api
+    spec:
+      imagePullSecrets:
+        - name: playground-secret
+      containers:
+        - name: todos-api-container
+          image: miketsap111/playground:todos-api-0.0.2
+          ports:
+            - containerPort: 8080
+          resources:
+            limits:
+              memory: "100Mi"
+            requests:
+              memory: "100Mi"
+              cpu: "50m"
+          securityContext:
+            allowPrivilegeEscalation: false
+            privileged: false
+      securityContext:
+        seccompProfile:
+          type: RuntimeDefault
