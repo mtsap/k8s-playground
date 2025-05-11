@@ -7,7 +7,7 @@ spec:
     - web
   routes:
     - kind: Rule
-      match: PathPrefix(`/todos`)
+      match: PathPrefix(`/api/todos`)
       middlewares:
         - name: strip-todos-prefix
       services:
