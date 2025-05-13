@@ -1,0 +1,31 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: goose-migrate
+spec:
+  template:
+    spec:
+      containers:
+        - name: goose
+          image: goose-runner:latest
+          imagePullPolicy: Never
+          env:
+            - name: GOOSE_DRIVER
+              value: "postgres"
+            - name: GOOSE_DBSTRING
+              value: postgres://pguser:pgpass@postgres:5432/todos?sslmode=disable
+            - name: GOOSE_VERBOSE
+              value: "true"
+            - name: GOOSE_TABLE
+              value: "schema_migrations" # default table Goose uses
+              # command: ["sh", "-c"]
+              # args:
+              #   - goose -table=$GOOSE_TABLE $GOOSE_DRIVER "$GOOSE_DBSTRING" up
+              # volumeMounts:
+              #   - name: migrations
+              #     mountPath: /migrations
+      restartPolicy: Never
+      # volumes:
+      #   - name: migrations
+      #     emptyDir: {} # assuming migrations are baked into image; adjust if using configMap or PVC
+  backoffLimit: 1

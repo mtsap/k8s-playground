@@ -16,10 +16,12 @@ spec:
         - name: playground-secret
       containers:
         - name: todos-api-container
-          image: miketsap111/playground:todos-api-0.0.3
+          image: miketsap111/playground:todos-api-0.0.4
           env:
             - name: PORT
               value: "8080"
+            - name: GOOSE_DBSTRING
+              value: postgres://pguser:pgpass@postgres:5432/todos?sslmode=disable
           ports:
             - containerPort: 8080
           resources:
