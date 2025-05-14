@@ -1,0 +1,18 @@
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: general-ingress
+spec:
+  entryPoints:
+    - web
+  routes:
+    - kind: Rule
+      match: PathPrefix(`/api/todos`)
+      middlewares:
+        - name: strip-todos-prefix
+      services:
+        - kind: Service
+          name: todos-api-service
+          port: 80
+          scheme: http
