@@ -2,15 +2,10 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: todos-api-deployment
+  namespace: default
 spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: todos-api
+  replicas: 1
   template:
-    metadata:
-      labels:
-        app: todos-api
     spec:
       imagePullSecrets:
         - name: playground-secret
