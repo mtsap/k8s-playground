@@ -8,3 +8,8 @@ labels:
   - includeSelectors: true
     pairs:
       app: todos-api
+
+configMapGenerator:
+  - name: todos-configmap
+    envs:
+      - config.env

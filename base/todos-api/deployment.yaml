@@ -12,13 +12,9 @@ spec:
       containers:
         - name: todos-api-container
           image: miketsap111/playground:todos-api-0.0.9
-          env:
-            - name: PORT
-              value: "8080"
-            - name: ENV
-              value: "DEV-CLUSTER"
-              # - name: GOOSE_DBSTRING
-              #   value: postgres://pguser:pgpass@postgres:5432/todos?sslmode=disable
+          envFrom:
+            - configMapRef:
+                name: todos-configmap
           ports:
             - containerPort: 8080
           resources:

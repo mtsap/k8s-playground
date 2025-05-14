@@ -4,4 +4,4 @@ metadata:
   name: todos-api-deployment
   namespace: default
 spec:
-  replicas: 15
+  replicas: 5
