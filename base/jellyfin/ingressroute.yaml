@@ -2,17 +2,16 @@
 apiVersion: traefik.io/v1alpha1
 kind: IngressRoute
 metadata:
-  name: todos-host-ingress
+  name: jellyfin-ingressroute
 spec:
   entryPoints:
     - web
   routes:
     - kind: Rule
-      match: Host(`todos.mtsap.io`)
-      # middlewares:
-      #   - name: strip-todos-prefix
+      match: Host(`jellyfin.mtsap.io`)
       services:
         - kind: Service
-          name: todos-api-service
-          port: 8080
+          name: jellyfin
+          namespace: jellyfin
+          port: 8096
           scheme: http
