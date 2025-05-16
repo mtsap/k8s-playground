@@ -1,27 +1,7 @@
 ---
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-labels:
-  - includeSelectors: true
-    pairs:
-      variant: dev
 
 resources:
-  # - https://raw.githubusercontent.com/k3s-io/k3s/master/manifests/traefik.yaml
   - ./middleware.yaml
   - ./ingressroute.yaml
-  # - namespace.yaml
-
-# namespace: dev-traefik
-
-# patchesStrategicMerge:
-#   - deployment-patch.yaml
-
-# patchesJson6902:
-#   - target:
-#       group: apps
-#       version: v1
-#       kind: Deployment
-#       name: traefik
-#       namespace: traefik
-#     path: args-patch.yaml
