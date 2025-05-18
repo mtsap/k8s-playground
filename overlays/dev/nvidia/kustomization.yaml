@@ -7,3 +7,6 @@ labels:
       variant: dev
 resources:
   - ../../../base/nvidia/
+
+patches:
+  - path: gpu.yaml

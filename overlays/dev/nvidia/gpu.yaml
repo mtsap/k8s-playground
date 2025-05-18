@@ -1,0 +1,21 @@
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: nvidia-device-plugin-daemonset
+  namespace: kube-system
+spec:
+  template:
+    spec:
+      runtimeClassName: nvidia
+      containers:
+        - name: nvidia-device-plugin-ctr
+          volumeMounts:
+            - mountPath: /usr/lib/libnvidia-ml.so.1
+              name: nvidia-ml
+              readOnly: true
+      volumes:
+        - hostPath:
+            path: /usr/lib/libnvidia-ml.so.1
+            type: File
+          name: nvidia-ml
