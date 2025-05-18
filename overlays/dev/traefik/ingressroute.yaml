@@ -9,8 +9,6 @@ spec:
   routes:
     - kind: Rule
       match: Host(`todos.mtsap.io`)
-      # middlewares:
-      #   - name: strip-todos-prefix
       services:
         - kind: Service
           name: todos-api-service

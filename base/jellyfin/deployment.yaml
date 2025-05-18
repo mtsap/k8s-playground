@@ -10,6 +10,7 @@ spec:
       app: jellyfin
   template:
     spec:
+      runtimeClassName: nvidia
       containers:
         - name: jellyfin
           image: lscr.io/linuxserver/jellyfin:10.10.7
@@ -25,11 +26,13 @@ spec:
             - containerPort: 8096
           resources:
             requests:
-              cpu: "0m"
-              memory: "512Mi"
-            limits:
               cpu: "500m"
-              memory: "1Gi"
+              memory: "2Gi"
+              nvidia.com/gpu: 1
+            limits:
+              cpu: "1000m"
+              memory: "4Gi"
+              nvidia.com/gpu: 1
           volumeMounts:
             - name: config
               mountPath: /config
