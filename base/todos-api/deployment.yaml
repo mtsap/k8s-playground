@@ -12,7 +12,7 @@ spec:
         - name: playground-secret
       containers:
         - name: todos-api-container
-          image: miketsap111/playground:todos-api-0.0.9
+          image: miketsap111/playground:todos-api-0.0.10
           envFrom:
             - configMapRef:
                 name: todos-configmap
