@@ -13,4 +13,4 @@ spec:
       group: version
   policy:
     semver:
-      range: ">=0.0.5"
+      range: ">=0.0.6"
