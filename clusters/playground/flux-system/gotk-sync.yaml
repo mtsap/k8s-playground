@@ -10,7 +10,8 @@ spec:
   ref:
     branch: main
   secretRef:
-    name: flux-system
+    # name: flux-system
+    name: flux-git-ssh
   url: ssh://git@github.com/mtsap/k8s-playground
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1

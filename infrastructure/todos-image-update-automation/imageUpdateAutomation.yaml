@@ -18,7 +18,7 @@ spec:
         name: flux
         email: flux@users.noreply.github.com
       messageTemplate: |
-        update image to {{range .Updated.Images}}{{.NewTag}}{{end}}
+        update image to {{range .Updated.Images}}{{println .}}{{end}}
     push:
       branch: main
   update:

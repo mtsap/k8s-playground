@@ -8,7 +8,7 @@ spec:
   template:
     spec:
       imagePullSecrets:
-        - name: playground-secret
+        - name: playground-flux-secret
       containers:
         - name: todos-api-container
           image: miketsap111/playground:todos-api-0.0.10 # {"$imagepolicy": "flux-system:playground-policy"}
