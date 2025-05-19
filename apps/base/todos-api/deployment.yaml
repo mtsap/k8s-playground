@@ -1,4 +1,3 @@
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -11,7 +10,7 @@ spec:
         - name: playground-flux-secret
       containers:
         - name: todos-api-container
-          image: miketsap111/playground:todos-api-0.0.10 # {"$imagepolicy": "flux-system:playground-policy"}
+          image: miketsap111/playground:todos-api-0.0.11 # {"$imagepolicy": "flux-system:playground-policy"}
           envFrom:
             - configMapRef:
                 name: todos-configmap
