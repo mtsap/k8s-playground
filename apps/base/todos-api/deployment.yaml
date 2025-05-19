@@ -11,7 +11,7 @@ spec:
         - name: playground-secret
       containers:
         - name: todos-api-container
-          image: miketsap111/playground:todos-api-0.0.10
+          image: miketsap111/playground:todos-api-0.0.10 # {"$imagepolicy": "flux-system:playground-policy"}
           envFrom:
             - configMapRef:
                 name: todos-configmap
