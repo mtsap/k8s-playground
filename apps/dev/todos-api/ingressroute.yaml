@@ -1,0 +1,17 @@
+---
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: todos-host-ingress
+spec:
+  entryPoints:
+    - web
+  routes:
+    - kind: Rule
+      match: Host(`todos.mtsap.io`)
+      services:
+        - kind: Service
+          name: todos-api-service
+          namespace: todos
+          port: 8080
+          scheme: http

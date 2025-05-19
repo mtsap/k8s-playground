@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: todos-api-deployment
-  namespace: default
+  namespace: todos
 spec:
   replicas: 1
   template:
