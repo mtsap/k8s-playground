@@ -1,0 +1,11 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: playground
+  namespace: flux-system
+spec:
+  image: miketsap111/playground
+  interval: 1m
+  secretRef:
+    name: playground-flux-secret
