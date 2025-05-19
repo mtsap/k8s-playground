@@ -12,6 +12,5 @@ spec:
       services:
         - kind: Service
           name: todos-api-service
-          namespace: todos
           port: 8080
           scheme: http
