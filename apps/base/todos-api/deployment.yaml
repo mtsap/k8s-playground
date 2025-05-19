@@ -1,3 +1,4 @@
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -8,6 +9,7 @@ spec:
     spec:
       imagePullSecrets:
         - name: playground-flux-secret
+          namespace: flux-system
       containers:
         - name: todos-api-container
           image: miketsap111/playground:todos-api-0.0.11 # {"$imagepolicy": "flux-system:playground-policy"}
