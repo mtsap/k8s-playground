@@ -1,0 +1,13 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: playground-policy
+  namespace: flux-system
+spec:
+  imageRepositoryRef:
+    name: playground
+  policy:
+    semver:
+      range: ">=0.0.9"
+      prefix: "todos-api-"
