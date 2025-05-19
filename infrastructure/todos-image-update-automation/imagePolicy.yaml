@@ -8,7 +8,9 @@ spec:
   imageRepositoryRef:
     name: playground
   filterTags:
-    pattern: '^todos-api-(.*)$'
+    pattern: '^todos-api-(?P<version>.*)$'
+    extract:
+      group: version
   policy:
     semver:
-      range: ">=0.0.9"
+      range: ">=0.0.5"
