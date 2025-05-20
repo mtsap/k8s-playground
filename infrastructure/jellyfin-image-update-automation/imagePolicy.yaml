@@ -7,9 +7,12 @@ metadata:
 spec:
   imageRepositoryRef:
     name: jellyfin
-  filterTags:
-    pattern: '^(?P<version>(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*))$'
-    extract: '$version'
+  # filterTags:
+  #   pattern: '^(?P<version>(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*))$'
+  #   extract: '$version'
+  # policy:
+  #   semver:
+  #     range: ">=10.10.0"
   policy:
-    semver:
-      range: ">=10.10.0"
+    numerical:
+      order: asc
