@@ -14,5 +14,5 @@ spec:
   #   semver:
   #     range: ">=10.10.0"
   policy:
-    numerical:
+    alphabetical:
       order: asc
