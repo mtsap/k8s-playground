@@ -7,9 +7,9 @@ metadata:
 spec:
   imageRepositoryRef:
     name: jellyfin
-  # filterTags:
-  #   pattern: '^todos-api-(?P<version>.*)$'
-  #   extract: '$version'
+  filterTags:
+    pattern: '^(?P<version>\d+\.\d+\.\d+)$'
+    extract: '$version'
   policy:
     semver:
       range: ">=10.10.0"
