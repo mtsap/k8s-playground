@@ -1,0 +1,17 @@
+---
+# helmreleases/tempo.yaml
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: tempo
+  namespace: monitoring
+spec:
+  chart:
+    spec:
+      chart: tempo
+      sourceRef:
+        kind: HelmRepository
+        name: grafana
+      version: "1.8.0"
+  interval: 5m
+  values: {}
