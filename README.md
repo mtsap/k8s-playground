@@ -26,4 +26,4 @@
 - Sample Go rest api. No real functionality. Just a status endpoint.
     Used mainly for testing out things
 - Jellyfin
-
+- TODO: More to come!
