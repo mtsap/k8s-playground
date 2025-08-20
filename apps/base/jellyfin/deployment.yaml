@@ -1,5 +1,4 @@
 ---
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -22,36 +21,26 @@ spec:
               value: "1000"
             - name: TZ
               value: Europe/Athens
-            - name: NVIDIA_VISIBLE_DEVICES
-              value: "all"
-            - name: NVIDIA_DRIVER_CAPABILITIES
-              value: "compute,utility,video"
+
           ports:
             - containerPort: 8096
           resources:
             requests:
-              cpu: "600m"
+              cpu: "500m"
               memory: "2Gi"
+              nvidia.com/gpu: 1
             limits:
               cpu: "1000m"
               memory: "4Gi"
+              nvidia.com/gpu: 1
           volumeMounts:
             - name: config
               mountPath: /config
             - name: media
               mountPath: /media
-            - name: dev-dri
-              mountPath: /dev/dri
-            - name: nvidia-devices
-              mountPath: /dev/nvidia0
-            - name: nvidia-uvm
-              mountPath: /dev/nvidia-uvm
-            - name: nvidia-uvm-tools
-              mountPath: /dev/nvidia-uvm-tools
-            - name: nvidiactl
-              mountPath: /dev/nvidiactl
           securityContext:
-            privileged: true
+            allowPrivilegeEscalation: false
+            privileged: false
       volumes:
         - name: config
           persistentVolumeClaim:
@@ -59,21 +48,6 @@ spec:
         - name: media
           persistentVolumeClaim:
             claimName: jellyfin-media-pvc
-        - name: dev-dri
-          hostPath:
-            path: /dev/dri
-        - name: nvidia-devices
-          hostPath:
-            path: /dev/nvidia0
-        - name: nvidia-uvm
-          hostPath:
-            path: /dev/nvidia-uvm
-        - name: nvidia-uvm-tools
-          hostPath:
-            path: /dev/nvidia-uvm-tools
-        - name: nvidiactl
-          hostPath:
-            path: /dev/nvidiactl
       securityContext:
         seccompProfile:
           type: RuntimeDefault
